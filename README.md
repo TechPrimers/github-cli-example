@@ -1,8 +1,10 @@
 # Github CLI Example
  
 ## Command used
+1. Authenticate the Github CLI `gh` with your github.com account using `gh auth login`
 ```
 ❯ gh auth login
+
 ? What account do you want to log into? GitHub.com
 - Logging into github.com
 ? You're already logged into github.com as MovingToWeb. Do you want to re-authenticate? Yes
@@ -16,7 +18,12 @@
 - gh config set -h github.com git_protocol https
 ✓ Configured git protocol
 ✓ Logged in as MovingToWeb
+```
+
+2. Create new repo using `gh repo create`. `TechPrimers/` denotes the organization under which the repository needs to be created.
+```
 ❯ gh repo create TechPrimers/github-cli-example
+
 ? Visibility Public
 ? This will create 'TechPrimers/github-cli-example' in your current directory. Continue?  Yes
 ✓ Created repository TechPrimers/github-cli-example on GitHub
@@ -25,6 +32,9 @@ Initialized empty Git repository in /Users/ajay/Documents/code/github-cli-exampl
 ✓ Initialized repository in './github-cli-example/'
 ```
 
+3. Add a new file in the empty repo, commit it and push it to remote repository (github.com)
+
+```
 ❯ cd github-cli-example
 
 ❯ vi README.md
@@ -46,21 +56,19 @@ Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/TechPrimers/github-cli-example.git
  * [new branch]      main -> main
 Branch 'main' set up to track remote branch 'main' from 'origin'.
+
 ❯ gh repo view
+```
 
-❯ gh config help
-unknown command "help" for "gh config"
-
-Did you mean this?
-	--help
+4. Get documentation/help from the CLI directly using `--help` or `help` command
+```
+❯ gh config --help
 
 Usage:  gh config [flags]
 
 Available commands:
   get
   set
-
-❯ gh help
 
 ❯ gh help
 Work seamlessly with GitHub from the command line.
@@ -101,8 +109,10 @@ LEARN MORE
 
 FEEDBACK
   Open an issue using 'gh issue create -R cli/cli'
+```
 
-
+5. Let's create a new issue to work on a new feature
+```
 ❯ gh issue create
 
 Creating issue in TechPrimers/github-cli-example
@@ -111,7 +121,10 @@ Creating issue in TechPrimers/github-cli-example
 ? Body <Received>
 ? What's next? Submit
 https://github.com/TechPrimers/github-cli-example/issues/1
+```
 
+6. Let's create a feature branch and add the implementation of the feature in it.
+```
 ❯ git checkout -b feature-1
 Switched to a new branch 'feature-1'
 
@@ -122,8 +135,6 @@ Switched to a new branch 'feature-1'
  1 file changed, 2 insertions(+)
 
 ❯ git push --set-upstream origin feature-1
-Username for 'https://github.com': MovingtoWeb
-Password for 'https://MovingtoWeb@github.com':
 Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Writing objects: 100% (3/3), 307 bytes | 307.00 KiB/s, done.
@@ -135,9 +146,15 @@ remote:
 To https://github.com/TechPrimers/github-cli-example.git
  * [new branch]      feature-1 -> feature-1
 Branch 'feature-1' set up to track remote branch 'feature-1' from 'origin'.
+```
 
+7. To get the list of issue, use `list` command
+```
 ❯ gh issue list
+```
 
+8. To create a pull request from the feature branch to the main branch, we can use `gh pr create`
+```
 ❯ gh pr create
 
 Creating pull request for feature-1 into main in TechPrimers/github-cli-example
@@ -146,11 +163,19 @@ Creating pull request for feature-1 into main in TechPrimers/github-cli-example
 ? Body <Received>
 ? What's next? Submit
 https://github.com/TechPrimers/github-cli-example/pull/2
+```
 
+9. Use `list` to list the pull requests for the repo
+```
 ❯ gh pr list
+```
 
+10. Finally merging the pull request can be done by `gh pr merge`
+```
 ❯ gh pr merge
+
 ? What merge method would you like to use? Create a merge commit
 ? Delete the branch locally and on GitHub? Yes
 ✔ Merged pull request #2 (Added new Feature for issue-1)
 ✔ Deleted branch feature-1 and switched to branch main
+```
