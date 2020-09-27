@@ -179,3 +179,6 @@ https://github.com/TechPrimers/github-cli-example/pull/2
 ✔ Merged pull request #2 (Added new Feature for issue-1)
 ✔ Deleted branch feature-1 and switched to branch main
 ```
+
+## References
+- [Github manual](https://cli.github.com/manual/)
