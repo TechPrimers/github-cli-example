@@ -1,5 +1,8 @@
 # Github CLI Example
  
+## Installation
+- CLI can be installed from [https://cli.github.com/](https://cli.github.com/)
+
 ## Command used
 1. Authenticate the Github CLI `gh` with your github.com account using `gh auth login`
 ```
